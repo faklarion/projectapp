@@ -27,6 +27,30 @@ function select2_dinamis($name,$table,$field,$placeholder){
     return $select2;
 }
 
+function tgl_indo($tanggal){
+	$bulan = array (
+		1 =>   'Januari',
+		'Februari',
+		'Maret',
+		'April',
+		'Mei',
+		'Juni',
+		'Juli',
+		'Agustus',
+		'September',
+		'Oktober',
+		'November',
+		'Desember'
+	);
+	$pecahkan = explode('-', $tanggal);
+	
+	// variabel pecahkan 0 = tanggal
+	// variabel pecahkan 1 = bulan
+	// variabel pecahkan 2 = tahun
+ 
+	return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+}
+
 function datalist_dinamis($name,$table,$field,$value=null){
     $ci = get_instance();
     $string = '<input value="'.$value.'" name="'.$name.'" list="'.$name.'" class="form-control">

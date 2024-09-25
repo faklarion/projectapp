@@ -3,12 +3,15 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>GARUDA CRUD Generator</title>
+        <title>ZED Group</title>
+        <link rel="icon" href="<?php echo base_url('assets/img/logozed.png') ?>" type="image/x-icon">
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- Bootstrap 3.3.7 -->
         <link rel="stylesheet" href="<?php echo base_url() ?>assets/jquery-ui/themes/base/minified/jquery-ui.min.css" type="text/css" />
         <link rel="stylesheet" href="<?php echo base_url() ?>assets/adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap4.min.css">
         <!-- Font Awesome -->
         <link rel="stylesheet" href="<?php echo base_url() ?>assets/adminlte/bower_components/font-awesome/css/font-awesome.min.css">
         <!-- Ionicons -->
@@ -40,9 +43,9 @@
                 <!-- Logo -->
                 <a href="<?php echo base_url() ?>adminlte/index2.html" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
-                    <span class="logo-mini"><b>A</b>LT</span>
+                    <span class="logo-mini"><b>ZED</b></span>
                     <!-- logo for regular state and mobile devices -->
-                    <span class="logo-lg"><b>BROCODE</b>LTE</span>
+                    <span class="logo-lg"><b>ZED</b> Group</span>
                 </a>
                 <!-- Header Navbar: style can be found in header.less -->
                 <nav class="navbar navbar-static-top">
@@ -111,7 +114,7 @@
                 <div class="pull-right hidden-xs">
                     <b>Version</b> 2.4.0
                 </div>
-                <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
+                <strong>Copyright &copy; <?php echo date('Y'); ?> <a href="https://adminlte.io">ZED Group</a>.</strong> All rights
                 reserved.
             </footer>
 
@@ -330,6 +333,8 @@
         <script src="<?php echo base_url() ?>assets/adminlte/dist/js/demo.js"></script>
         <!-- Select2 -->
         <script src="<?php echo base_url() ?>assets/adminlte/bower_components/select2/dist/js/select2.full.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap4.min.js"></script>
         <!-- page script -->
         <script>
             $(function () {
@@ -344,6 +349,13 @@
                     'autoWidth'   : false
                 })
             })
+        </script>
+        <script>
+            $(document).ready(function() {
+                $('#tableProject').DataTable({
+                    responsive: true
+                });
+            });
         </script>
     </body>
 </html>
