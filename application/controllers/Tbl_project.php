@@ -92,7 +92,6 @@ class Tbl_project extends CI_Controller
             'nama_project' => $this->input->post('nama_project',TRUE),
             'pic' => $this->input->post('pic',TRUE),
             'tanggal_mulai' => $this->input->post('tanggal_mulai',TRUE),
-            'tanggal_selesai' => $this->input->post('tanggal_selesai',TRUE),
 	    );
 
             $this->Tbl_project_model->insert($data);
@@ -109,13 +108,13 @@ class Tbl_project extends CI_Controller
             $data = array(
                 'button' => 'Update',
                 'action' => site_url('tbl_project/update_action'),
-		'id_project' => set_value('id_project', $row->id_project),
-		'nama_project' => set_value('nama_project', $row->nama_project),
-		'pic' => set_value('pic', $row->pic),
-		'status_approval' => set_value('status_approval', $row->status_approval),
-		'status_bonus' => set_value('status_bonus', $row->status_bonus),
-		'tanggal_mulai' => set_value('tanggal_mulai', $row->tanggal_mulai),
-		'tanggal_selesai' => set_value('tanggal_selesai', $row->tanggal_selesai),
+                'id_project' => set_value('id_project', $row->id_project),
+                'nama_project' => set_value('nama_project', $row->nama_project),
+                'pic' => set_value('pic', $row->pic),
+                'status_approval' => set_value('status_approval', $row->status_approval),
+                'status_bonus' => set_value('status_bonus', $row->status_bonus),
+                'tanggal_mulai' => set_value('tanggal_mulai', $row->tanggal_mulai),
+                'tanggal_selesai' => set_value('tanggal_selesai', $row->tanggal_selesai),
 	    );
             $this->template->load('template','tbl_project/tbl_project_form', $data);
         } else {
@@ -135,7 +134,6 @@ class Tbl_project extends CI_Controller
 		'nama_project' => $this->input->post('nama_project',TRUE),
 		'pic' => $this->input->post('pic',TRUE),
 		'tanggal_mulai' => $this->input->post('tanggal_mulai',TRUE),
-		'tanggal_selesai' => $this->input->post('tanggal_selesai',TRUE),
 	    );
 
             $this->Tbl_project_model->update($this->input->post('id_project', TRUE), $data);
@@ -172,6 +170,8 @@ class Tbl_project extends CI_Controller
         
         $data = array(
 		    'status_approval' => $this->input->post('status_approval',TRUE),
+            'tanggal_approval' => date('Y-m-d'),
+            'tanggal_selesai' => date('Y-m-d'),
 	    );
 
             $this->Tbl_project_model->update($this->input->post('id_project', TRUE), $data);
@@ -207,6 +207,7 @@ class Tbl_project extends CI_Controller
         
         $data = array(
 		    'status_bonus' => $this->input->post('status_bonus',TRUE),
+            'tanggal_bonus' => date('Y-m-d'),
 	    );
 
             $this->Tbl_project_model->update($this->input->post('id_project', TRUE), $data);
@@ -235,7 +236,7 @@ class Tbl_project extends CI_Controller
 	//$this->form_validation->set_rules('status_approval', 'status approval', 'trim|required');
 	//$this->form_validation->set_rules('status_bonus', 'status bonus', 'trim|required');
 	$this->form_validation->set_rules('tanggal_mulai', 'tanggal mulai', 'trim|required');
-	$this->form_validation->set_rules('tanggal_selesai', 'tanggal selesai', 'trim|required');
+	//$this->form_validation->set_rules('tanggal_selesai', 'tanggal selesai', 'trim|required');
 
 	$this->form_validation->set_rules('id_project', 'id_project', 'trim');
 	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');

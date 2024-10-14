@@ -20,11 +20,7 @@
 						<td width='200'>Tanggal Mulai <?php echo form_error('tanggal_mulai') ?></td>
 						<td><input type="date" class="form-control" name="tanggal_mulai" id="tanggal_mulai" placeholder="Tanggal Mulai" value="<?php echo $tanggal_mulai; ?>" /></td>
 					</tr>
-	
-					<tr>
-						<td width='200'>Tanggal Selesai (estimasi)<?php echo form_error('tanggal_selesai') ?></td>
-						<td><input type="date" class="form-control" name="tanggal_selesai" id="tanggal_selesai" placeholder="Tanggal Selesai" value="<?php echo $tanggal_selesai; ?>" /></td>
-					</tr>
+
 	
 					<tr>
 						<td></td>

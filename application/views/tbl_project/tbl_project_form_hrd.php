@@ -13,12 +13,12 @@
 						<td>
 						<label>
 							<input type="radio" name="status_bonus" value="0"
-							<?php if ($status_bonus == 0) echo 'checked'; ?>> Belum Cair
+							<?php if ($status_bonus == 0) echo 'checked'; ?>> Belum Dicairkan
 						</label>
 							<br>
 						<label>
 							<input type="radio" name="status_bonus" value="1"
-							<?php if ($status_bonus == 1) echo 'checked'; ?>> Cair
+							<?php if ($status_bonus == 1) echo 'checked'; ?>> Sudah Dicairkan
 						</label>
 						</td>
 					</tr>

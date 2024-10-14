@@ -13,12 +13,12 @@
 						<td>
 						<label>
 							<input type="radio" name="status_approval" value="0"
-							<?php if ($status_approval == 0) echo 'checked'; ?>> Belum ACC
+							<?php if ($status_approval == 0) echo 'checked'; ?>> Belum Disetujui
 						</label>
 							<br>
 						<label>
 							<input type="radio" name="status_approval" value="1"
-							<?php if ($status_approval == 1) echo 'checked'; ?>> Sudah ACC
+							<?php if ($status_approval == 1) echo 'checked'; ?>> Sudah Disetujui
 						</label>
 						</td>
 					</tr>

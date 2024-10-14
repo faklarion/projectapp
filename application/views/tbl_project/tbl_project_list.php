@@ -1,3 +1,18 @@
+<style>
+    .text-box-warning {
+        background-color: orange; /* Warna kotak */
+        color: white; /* Warna teks */
+        padding: 10px; /* Ruang di dalam kotak */
+        border-radius: 5px; /* Sudut membulat (opsional) */
+    }
+
+    .text-box-success {
+        background-color: green; /* Warna kotak */
+        color: white; /* Warna teks */
+        padding: 10px; /* Ruang di dalam kotak */
+        border-radius: 5px; /* Sudut membulat (opsional) */
+    }
+</style>
 <div class="content-wrapper">
     <section class="content">
         <div class="row">
@@ -59,7 +74,9 @@
                     <th class="text-center">Tanggal Mulai</th>
                     <th class="text-center">Tanggal Selesai (Estimasi)</th>
                     <th class="text-center">Status Approval</th>
+                    <th class="text-center">Tanggal Approval</th>
                     <th class="text-center">Status Bonus</th>
+                    <th class="text-center">Tanggal Bonus</th>
                     <th class="text-center">Action</th>
                 </tr>
             </thead>
@@ -74,21 +91,31 @@
                 <td style="text-align:center">
                     <?php 
                         if($tbl_project->status_approval == 0 ) {
-                            echo '<button class="btn btn-sm btn-warning">Belum ACC</button>';
+                            echo '<div class="text-box-warning">
+                                    <small>Belum Disetujui</small>
+                                </div>';
                         } elseif($tbl_project->status_approval == 1 ) {
-                            echo '<button class="btn btn-sm btn-success">ACC</button>';
+                            echo '<div class="text-box-success">
+                                    <small>Sudah Disetujui</small>
+                                </div>';
                         }
                     ?>
                 </td>
+                <td style="text-align:center"><?php echo tgl_indo($tbl_project->tanggal_approval) ?></td>
                 <td style="text-align:center">
                     <?php 
                             if($tbl_project->status_bonus == 0 ) {
-                                echo '<button class="btn btn-sm btn-warning">Belum Cair</button>';
+                                echo '<div class="text-box-warning">
+                                    <small>Belum Dicairkan</small>
+                                </div>';
                             } elseif($tbl_project->status_bonus == 1 ) {
-                                echo '<button class="btn btn-sm btn-success">Cair</button>';
+                                echo '<div class="text-box-success">
+                                    <small>Sudah Dicairkan</small>
+                                </div>';
                             }
                         ?>
-                    </td>
+                </td>
+                <td style="text-align:center"><?php echo tgl_indo($tbl_project->tanggal_bonus) ?></td>
                 <td style="text-align:center" width="200px">
                     <?php 
                     if ($this->session->userdata('id_user_level') == 1) {
