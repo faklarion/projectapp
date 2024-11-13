@@ -70,13 +70,13 @@ class Tbl_project extends CI_Controller
         $data = array(
             'button' => 'Create',
             'action' => site_url('tbl_project/create_action'),
-	    'id_project' => set_value('id_project'),
-	    'nama_project' => set_value('nama_project'),
-	    'pic' => set_value('pic'),
-	    'status_approval' => set_value('status_approval'),
-	    'status_bonus' => set_value('status_bonus'),
-	    'tanggal_mulai' => set_value('tanggal_mulai'),
-	    'tanggal_selesai' => set_value('tanggal_selesai'),
+            'id_project' => set_value('id_project'),
+            'nama_project' => set_value('nama_project'),
+            'pic' => set_value('pic'),
+            'status_approval' => set_value('status_approval'),
+            'status_bonus' => set_value('status_bonus'),
+            'tanggal_mulai' => set_value('tanggal_mulai'),
+            'tanggal_selesai' => set_value('tanggal_selesai'),
 	);
         $this->template->load('template','tbl_project/tbl_project_form', $data);
     }
@@ -222,6 +222,23 @@ class Tbl_project extends CI_Controller
         if ($row) {
             $this->Tbl_project_model->delete($id);
             $this->session->set_flashdata('message', 'Delete Record Success');
+            redirect(site_url('tbl_project'));
+        } else {
+            $this->session->set_flashdata('message', 'Record Not Found');
+            redirect(site_url('tbl_project'));
+        }
+    }
+
+    public function update_status($id) 
+    {
+        $row = $this->Tbl_project_model->get_by_id($id);
+
+        if ($row) {
+            $data = array(
+                'status_project' => 1,
+            );
+            $this->Tbl_project_model->update($id, $data);
+            $this->session->set_flashdata('message', 'Update Project Success');
             redirect(site_url('tbl_project'));
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');

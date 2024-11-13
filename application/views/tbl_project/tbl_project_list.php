@@ -72,7 +72,8 @@
                     <th class="text-center">Nama Project</th>
                     <th class="text-center">PIC</th>
                     <th class="text-center">Tanggal Mulai</th>
-                    <th class="text-center">Tanggal Selesai (Estimasi)</th>
+                    <th class="text-center">Status Selesai</th>
+                    <th class="text-center">Tanggal Selesai</th>
                     <th class="text-center">Status Approval</th>
                     <th class="text-center">Tanggal Approval</th>
                     <th class="text-center">Status Bonus</th>
@@ -87,6 +88,19 @@
                 <td style="text-align:center"><?php echo $tbl_project->nama_project ?></td>
                 <td style="text-align:center"><?php echo $tbl_project->pic ?></td>
                 <td style="text-align:center"><?php echo tgl_indo($tbl_project->tanggal_mulai) ?></td>
+                <td style="text-align:center">
+                    <?php 
+                        if($tbl_project->status_project == 0 ) {
+                            echo '<div class="text-box-warning">
+                                    <small>Belum Selesai</small>
+                                </div>';
+                        } elseif($tbl_project->status_project == 1 ) {
+                            echo '<div class="text-box-success">
+                                    <small>Selesai</small>
+                                </div>';
+                        }
+                    ?>
+                </td>
                 <td style="text-align:center"><?php echo tgl_indo($tbl_project->tanggal_selesai) ?></td>
                 <td style="text-align:center">
                     <?php 
@@ -119,6 +133,10 @@
                 <td style="text-align:center" width="200px">
                     <?php 
                     if ($this->session->userdata('id_user_level') == 1) {
+                        if($tbl_project->status_project == 0) {
+                            echo anchor(site_url('tbl_project/update_status/'.$tbl_project->id_project),'<i class="fa fa-check" aria-hidden="true"></i>','class="btn btn-info btn-sm" onclick="javascript: return confirm(\'Are You Sure ?\')"'); 
+                        }
+                        echo ' ';
                         echo anchor(site_url('tbl_project/update/'.$tbl_project->id_project),'<i class="fa fa-pencil-square-o" aria-hidden="true"></i>','class="btn btn-danger btn-sm"'); 
                         echo '  '; 
                         echo anchor(site_url('tbl_project/delete/'.$tbl_project->id_project),'<i class="fa fa-trash-o" aria-hidden="true"></i>','class="btn btn-danger btn-sm" Delete onclick="javascript: return confirm(\'Are You Sure ?\')"'); 
